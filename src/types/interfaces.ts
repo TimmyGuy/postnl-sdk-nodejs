@@ -27,8 +27,6 @@ export interface InternalServerError {
     };
 }
 
-export type DefaultErrors = Unauthorized | MethodNotAllowedOnlyGetPost | TooManyRequests | InternalServerError;
-
 export interface Address {
     AddressType: string;
     Area?: string;

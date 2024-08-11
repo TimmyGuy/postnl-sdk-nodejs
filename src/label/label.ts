@@ -1,14 +1,18 @@
 import {PostNL} from "../postnl";
-import {LabellingRequest, LabellingResponse} from "./interfaces";
+import {LabellingRequest, LabellingResponse, LabellingResponseInvalid} from "./interfaces";
+import {Endpoint} from "../endpoint";
+import {PostNLError} from "../error";
 
 /**
  * @link https://developer.postnl.nl/docs/#/http/api-endpoints/send-track/labelling/overview
  * @deprecated Prefer using the `Shipment` class instead.
  */
-export class Label {
+export class Label extends Endpoint {
     readonly path = '/shipment/v2_2/label'
 
-    constructor(private readonly postnl: PostNL) {}
+    constructor(private readonly postnl: PostNL) {
+        super();
+    }
 
     /**
      *
@@ -21,5 +25,12 @@ export class Label {
     ) {
         const path = confirm ? `${this.path}?confirm=true` : this.path;
         return await this.postnl.post<LabellingResponse>(`${path}`, payload);
+    }
+
+    registerDiscriminator(): void {
+        PostNLError.registerDiscriminator<LabellingResponseInvalid>(
+            (path) => path === this.path,
+            (error) => JSON.stringify(error.Errors)
+        )
     }
 }

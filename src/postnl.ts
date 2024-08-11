@@ -43,19 +43,9 @@ export class PostNL {
 
         if (!response.ok) {
             const error = await response.json()
-
-            switch (response.status) {
-                case 401:
-                    throw new PostNLError(error.message);
-                case 405:
-                    throw new PostNLError(error.message);
-                case 429:
-                    throw new PostNLError(error.message);
-                case 500:
-                    throw new PostNLError(error.fault.faultstring);
-                default:
-                    throw new PostNLError(undefined, error);
-            }
+            // path without search params
+            const cleanPath = path.split('?')[0];
+            throw new PostNLError(cleanPath, error);
         }
 
         return await response.json();

@@ -97,3 +97,11 @@ export interface LabellingResponseShipment {
     Errors?: Object[];
     Warnings?: Warning[];
 }
+
+export interface LabellingResponseInvalid {
+    Errors: {
+        Error: string;
+        Code: string;
+        Description: string;
+    }[]
+}
