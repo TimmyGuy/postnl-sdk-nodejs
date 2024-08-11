@@ -28,10 +28,13 @@
       }
     }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "homepage": "https://github.com/TimmyGuy/postnl-sdk-nodejs#readme",
+  "keywords": [
+    "postnl", "postnl-sdk"
+  ],
+  "author": "Tim Ohlsen",
+  "license": "MIT",
+  "description": "Unofficial PostNL SDK for Node.js inspired by Resend",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "18.19.34",
