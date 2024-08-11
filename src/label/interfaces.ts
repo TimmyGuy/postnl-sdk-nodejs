@@ -35,7 +35,7 @@ export interface LabellingCustomerMessage {
 export interface LabellingCustomerShipment {
     Addresses: Address[];
     Amounts?: Amount[];
-    Barcode: string;
+    Barcode?: string;
     CodingText?: string;
     CollectionTimeStampStart?: string;
     CollectionTimeStampEnd?: string;
@@ -53,7 +53,7 @@ export interface LabellingCustomerShipment {
     Groups?: Group[];
     HazardousMaterial?: HazardousMaterial[];
     ProductCodeCollect?: string;
-    ProductCodeDelivery: string;
+    ProductCodeDelivery?: string;
     ProductOptions?: ProductOption[];
     ReceiverDateOfBirth?: string;
     Reference?: string;
