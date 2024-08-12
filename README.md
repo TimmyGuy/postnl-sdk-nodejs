@@ -1,5 +1,7 @@
 # Unofficial PostNL Node.js SDK
 
+[![npm version](https://badge.fury.io/js/postnl-sdk.svg)](https://badge.fury.io/js/postnl-sdk)
+
 This is an unofficial Node.js SDK for the PostNL API. It is a wrapper around the PostNL API, which is a RESTful API that
 allows you to create shipments, request shipping labels, and track shipments.
 
@@ -20,6 +22,8 @@ import { PostNL } from 'postnl-sdk';
 
 const postnl = new PostNL('your-api-key');
 ```
+
+The api key is _optional_. If not provided, it will search for the `POSTNL_API_KEY` environment variable.
 
 ## Example
 Generate a barcode of type 3S:
@@ -47,7 +51,7 @@ const barcode = await postnl.barcode.generate(payload);
     - [ ] Tests
   - [ ] Shipment
     - [x] Generate shipment label
-    - [ ] Tests
+    - [x] Tests
   - [ ] Shipping Status
     - [ ] Get status by barcode
     - [ ] Get status by reference
@@ -64,9 +68,9 @@ const barcode = await postnl.barcode.generate(payload);
     - [ ] Get pickup locations within area
     - [ ] Get pickup location
     - [ ] Tests
-  - [ ] Postalcode check
-    - [ ] Checkout postalcode check
-    - [ ] Tests
+  - [x] Postalcode check
+    - [x] Checkout postalcode check
+    - [x] Tests
   - [ ] Timeframes
     - [ ] Retrieve delivery timeframes
     - [ ] Tests

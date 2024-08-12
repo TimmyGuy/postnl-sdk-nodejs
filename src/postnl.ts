@@ -3,6 +3,7 @@ import {PostNLError} from "./error";
 import {Confirm} from "./confirm/confirm";
 import {Label} from "./label/label";
 import {Shipment} from "./shipment/shipment";
+import {Postalcode} from "./postalcode/postalcode";
 
 const defaultBaseUrl = 'https://api.postnl.nl';
 const sandboxBaseUrl = 'https://api-sandbox.postnl.nl';
@@ -15,13 +16,14 @@ export class PostNL {
     readonly confirm = new Confirm(this);
     readonly label = new Label(this);
     readonly shipment = new Shipment(this);
+    readonly postalcode = new Postalcode(this);
 
     public lastRequest?: {url: string, options?: {}, response: Response};
 
     constructor(readonly key?: string) {
         if (!key) {
             if (typeof process !== 'undefined' && process.env) {
-                this.key = process.env.RESEND_API_KEY;
+                this.key = process.env.POSTNL_API_KEY;
             }
 
             if (!this.key) {
