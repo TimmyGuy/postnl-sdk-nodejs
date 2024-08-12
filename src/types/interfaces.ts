@@ -77,11 +77,11 @@ export interface Contact {
 }
 
 export interface Dimension {
-    Height: number;
-    Length: number;
+    Height?: number;
+    Length?: number;
     Volume?: number;
     Weight: number;
-    Width: number;
+    Width?: number;
 }
 
 export interface Group {
