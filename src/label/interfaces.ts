@@ -53,7 +53,7 @@ export interface LabellingCustomerShipment {
     Groups?: Group[];
     HazardousMaterial?: HazardousMaterial[];
     ProductCodeCollect?: string;
-    ProductCodeDelivery?: string;
+    ProductCodeDelivery: string;
     ProductOptions?: ProductOption[];
     ReceiverDateOfBirth?: string;
     Reference?: string;
@@ -86,8 +86,8 @@ export interface LabellingMergedLabel {
 
 export interface LabellingLabel {
     Content: string;
-    Label: string;
-    LabelType: string;
+    OutputType: string;
+    Labeltype: string;
 }
 
 export interface LabellingResponseShipment {

@@ -26,6 +26,8 @@ export class PostNLError extends Error {
             }
         }
 
+        this.message = JSON.stringify(error);
+
     }
 
     private isHTTPError(error: unknown): error is HTTPError {
