@@ -16,6 +16,8 @@ export class PostNL {
     readonly label = new Label(this);
     readonly shipment = new Shipment(this);
 
+    public lastRequest?: {url: string, options?: {}, response: Response};
+
     constructor(readonly key?: string) {
         if (!key) {
             if (typeof process !== 'undefined' && process.env) {
@@ -40,6 +42,8 @@ export class PostNL {
         options?: {}
     ): Promise<T> {
         const response = await fetch(`${baseUrl}${path}`, options);
+
+        this.lastRequest = {url: `${baseUrl}${path}`, options, response};
 
         if (!response.ok) {
             const error = await response.json()
